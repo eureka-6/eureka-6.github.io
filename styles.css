@@ -1,0 +1,134 @@
+/* 页面背景和字体 */
+body {
+    font-family: 'Georgia', serif;
+    background-color: #f4e1c1;  /* 牛皮纸背景色 */
+    background-image: url('paper-texture.png'); /* 如果有纸质纹理图，添加此行 */
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200vh;
+}
+
+/* 页面内容容器 */
+.container {
+    width: 80%;
+    max-width: 800px;
+    padding: 20px;
+    text-align: left;
+}
+
+/* 标题样式 */
+.title {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #8b4c39; /* 深棕色 */
+    margin-bottom: 20px;
+}
+
+/* 复古信纸风格 */
+.letter-box {
+    background-color: #fff5e1;  /* 淡黄色背景 */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid #d1b39a;
+}
+
+/* 日期样式 */
+.date {
+    text-align: right;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #4b3b2f;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.3s forwards 0.3s;
+}
+
+/* 称呼部分 */
+.greeting {
+    font-size: 1.6rem;
+    color: #8b4c39;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s forwards 0.7s;
+}
+
+/* 文字段落样式 */
+p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s forwards;
+}
+
+/* 为每个段落设置不同的延迟时间 */
+p:nth-of-type(1) { animation-delay: 0.5s; }
+p:nth-of-type(2) { animation-delay: 1s; }
+p:nth-of-type(3) { animation-delay: 1.5s; }
+p:nth-of-type(4) { animation-delay: 2s; }
+p:nth-of-type(5) { animation-delay: 2.5s; }
+p:nth-of-type(6) { animation-delay: 3s; }
+p:nth-of-type(7) { animation-delay: 3.5s; }
+p:nth-of-type(8) { animation-delay: 4s; }
+p:nth-of-type(9) { animation-delay: 4.5s; }
+p:nth-of-type(10) { animation-delay: 5s; }
+p:nth-of-type(11) { animation-delay: 5.5s; }
+p:nth-of-type(12) { animation-delay: 6s; }
+p:nth-of-type(13) { animation-delay: 6.5s; }
+
+
+
+/* 结束语样式 */
+.closing, .signature {
+    font-size: 1.3rem;
+    text-align: right;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.closing {
+    animation: fadeIn 1s forwards 7s;
+}
+
+.signature {
+    animation: fadeIn 1s forwards 7.5s;
+}
+
+/* 返回链接样式 */
+.back-link {
+    display: inline-block;
+    margin-top: 30px;
+    font-size: 1.1rem;
+    color: #8b4c39;
+    text-decoration: none;
+    border: 2px solid #8b4c39;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.back-link:hover {
+    background-color: #8b4c39;
+    color: #fff;
+}
+
+/* 动画：逐渐显现并从下方滑入 */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
