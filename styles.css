@@ -9,7 +9,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 200vh;
+    height: 300vh;
 }
 
 /* 页面内容容器 */
@@ -120,6 +120,39 @@ p:nth-of-type(13) { animation-delay: 6.5s; }
     background-color: #8b4c39;
     color: #fff;
 }
+
+/* 图片盒子样式 */
+.image-box {
+    text-align: center;
+    display: inline-block; /* 使得盒子可以根据内容调整大小 */
+    padding: 10px; /* 盒子内部的内边距，可以根据需要调整 */
+    border: 10px solid transparent; /* 透明的边框，用于容纳花边图像 */
+    -webkit-border-image: url('images/lace.png') 30 round; /* WebKit 浏览器（如 Chrome、Safari） */
+    -moz-border-image: url('images/lace.png') 30 round; /* Firefox 浏览器 */
+    -o-border-image: url('images/lace.png') 30 round; /* Opera 浏览器 */
+    border-image: url('images/lace.png') 30 round; /* 标准语法 */
+    border-image-outset: 5px; /* 可选：设置花边图像超出边框的距离 */
+}
+
+/* 延时显示图片样式 */
+.delayed-image {
+    width: 50%; /* 使用百分比宽度，以便图片根据盒子大小调整 */
+    height: auto;
+    opacity: 0; /* 初始状态为透明 */
+    transform: translateY(20px); /* 初始状态下，图片向下偏移 */
+    animation: fadeIn 1s forwards 8s; /* 调用 fadeIn 动画，并设置7秒的延时 */
+}
+
+/* 延时显示 signature GIF 样式 */
+.delayed-gif {
+    width: 40%; /* 根据需求调整宽度 */
+    height: auto;
+    margin-left: 20px; /* 保持图片间距 */
+    opacity: 0; /* 初始状态为透明 */
+    transform: translateY(20px); /* 初始状态下向下偏移 */
+    animation: fadeIn 1s forwards 8s; /* 在主图展示2秒后加载 */
+}
+
 
 /* 动画：逐渐显现并从下方滑入 */
 @keyframes fadeIn {
