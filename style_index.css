@@ -44,19 +44,21 @@ body {
 }
 
 .center-image {
-    position: relative;
+    position: absolute; /* 让其相对于父容器绝对定位 */
     z-index: 10;
-    max-width: 15%;
-    max-height: 50%;
+    top: 50%; /* 垂直居中 */
+    left: 50%; /* 水平居中 */
+    transform: translate(-50%, -50%); /* 将其中心点调整为居中 */
+    height: 75%; /* 高度固定为滚动照片流的75% */
+    width: auto; /* 宽度根据高度自动调整 */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    border-radius: 15px;
-    transform: translateY(-75px);
+    border-radius: 15px; /* 圆角效果 */
 }
 
 .center-image img {
-    width: 110%;
-    height: auto;
-    border-radius: 15px;
+    height: 100%; /* 填充容器的高度 */
+    width: auto; /* 宽度自动调整，保持比例 */
+    border-radius: 15px; /* 圆角 */
 }
 
 .content {
