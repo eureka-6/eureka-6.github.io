@@ -111,3 +111,28 @@ body {
 .content {
     margin-top: 40px;
 }
+
+/* 网站简介样式 */
+.intro {
+    background-color: rgba(255, 255, 240, 0.9); /* 柔和的米白色背景，带透明效果 */
+    padding: 20px 30px;
+    border-radius: 15px;
+    margin: 20px auto;
+    max-width: 90%; /* 宽度适配不同屏幕 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加轻微阴影效果 */
+    text-align: left;
+    font-family: 'Georgia', serif;
+}
+
+.intro h2 {
+    font-size: 2rem;
+    color: #4A90E2; /* 标题颜色为现代蓝色 */
+    margin-bottom: 10px;
+}
+
+.intro p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #555; /* 字体颜色为柔和灰色 */
+    margin: 10px 0;
+}
