@@ -7,10 +7,24 @@
     <link rel="stylesheet" href="style_index.css">
 </head>
 <body>
-    <audio autoplay loop>
+    <audio id="backgroundMusic" loop>
         <source src="audio/Minecrafts_end.mp3" type="audio/mpeg">
         您的浏览器不支持音频播放。
     </audio>
+    
+    <button onclick="toggleMusic()">点击播放/暂停背景音乐</button>
+    
+    <script>
+        function toggleMusic() {
+            var audio = document.getElementById('backgroundMusic');
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+    </script>
+    
     <div class="intro">
         <h2>雅雅，欢迎来到属于我们的小天地——eureka-ya.xin</h2>
         <p>这个网站托管在一个大木头为我们特别注册的专属域名上。域名就像互联网世界中的永久地址，而这个域名是专属于雅雅和大木头的。它不仅仅是一个网站，更是我们共同回忆的见证，一个只属于我们两个人的小角落。</p>
