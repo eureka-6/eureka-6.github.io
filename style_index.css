@@ -7,6 +7,7 @@ body {
     overflow-x: hidden;
     height: auto;
     background-image: url('images/background.jpg'); /* 设置自定义背景图片 */
+    /* padding-bottom: 100px; */
 }
 
 .photo-wall {
@@ -62,14 +63,15 @@ body {
 }
 
 .content {
-    position: absolute;
+    position: relative;
     z-index: 20;
     background-color: rgba(255, 255, 155, 0.8);
     padding: 20px;
     border-radius: 10px;
     text-align: center;
     margin: 0 auto;
-    left: 50%;
+    width: 60%;
+    left: 32%;
     transform: translateX(-50%);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35); /* 添加轻微阴影效果 */
 }
@@ -137,4 +139,35 @@ body {
     line-height: 1.8;
     color: #555; /* 字体颜色为柔和灰色 */
     margin: 10px 0;
+}
+
+footer {
+    background-color: #f4e1c1;
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid #8b4c39;
+    margin-top: 50px; /* 添加额外的顶部间距 */
+}
+
+.footer {
+    background-color: #f4e1c1; /* 牛皮纸背景色，保持与页面风格一致 */
+    color: #4b3b2f; /* 深棕色字体，保持复古风格 */
+    text-align: center;
+    padding: 15px 20px;
+    border-top: 2px solid #8b4c39; /* 与整体颜色一致的边框 */
+    font-family: 'Georgia', serif;
+    font-size: 1rem; /* 调整字体大小 */
+    position: relative;
+    margin-top: 20px; /* 与内容保持间距 */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* 为底部添加轻微阴影 */
+}
+
+.footer p {
+    margin: 5px 0; /* 减少段落间距 */
+    line-height: 1.6; /* 提高可读性 */
+}
+
+.footer span {
+    font-weight: bold; /* 高亮显示动态数据 */
+    color: #8b4c39; /* 突出访问次数 */
 }

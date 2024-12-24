@@ -63,5 +63,19 @@
             <a href="01-03.html" class="calendar-link">January 3rd</a>
         </div>
     </div>
+
+    <div class="footer">
+        <p>© 2025 eureka-ya.xin. All rights reserved.</p>
+        <p>Designed with ❤️ by 大木头</p>
+        <p>网站访问次数：<span id="visitCount"></span></p>
+    </div>
+    
+    <script>
+        // 简单的访问次数计数功能（基于 localStorage）
+        let visitCount = localStorage.getItem('visitCount') || 0;
+        visitCount++;
+        localStorage.setItem('visitCount', visitCount);
+        document.getElementById('visitCount').textContent = visitCount;
+    </script>
 </body>
 </html>
