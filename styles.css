@@ -9,7 +9,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 300vh;
+    height: 400vh;
 }
 
 /* 页面内容容器 */
@@ -70,19 +70,19 @@ p {
 }
 
 /* 为每个段落设置不同的延迟时间 */
-p:nth-of-type(1) { animation-delay: 0.5s; }
-p:nth-of-type(2) { animation-delay: 1s; }
-p:nth-of-type(3) { animation-delay: 1.5s; }
-p:nth-of-type(4) { animation-delay: 2s; }
-p:nth-of-type(5) { animation-delay: 2.5s; }
-p:nth-of-type(6) { animation-delay: 3s; }
-p:nth-of-type(7) { animation-delay: 3.5s; }
-p:nth-of-type(8) { animation-delay: 4s; }
-p:nth-of-type(9) { animation-delay: 4.5s; }
-p:nth-of-type(10) { animation-delay: 5s; }
-p:nth-of-type(11) { animation-delay: 5.5s; }
-p:nth-of-type(12) { animation-delay: 6s; }
-p:nth-of-type(13) { animation-delay: 6.5s; }
+p:nth-of-type(1) { animation-delay: 2s; }
+p:nth-of-type(2) { animation-delay: 4s; }
+p:nth-of-type(3) { animation-delay: 6s; }
+p:nth-of-type(4) { animation-delay: 8s; }
+p:nth-of-type(5) { animation-delay: 10s; }
+p:nth-of-type(6) { animation-delay: 12s; }
+p:nth-of-type(7) { animation-delay: 14s; }
+p:nth-of-type(8) { animation-delay: 16s; }
+p:nth-of-type(9) { animation-delay: 18s; }
+p:nth-of-type(10) { animation-delay: 20s; }
+p:nth-of-type(11) { animation-delay: 22s; }
+p:nth-of-type(12) { animation-delay: 24s; }
+p:nth-of-type(13) { animation-delay: 26s; }
 
 
 
@@ -96,11 +96,11 @@ p:nth-of-type(13) { animation-delay: 6.5s; }
 }
 
 .closing {
-    animation: fadeIn 1s forwards 7s;
+    animation: fadeIn 1s forwards 28s;
 }
 
 .signature {
-    animation: fadeIn 1s forwards 7.5s;
+    animation: fadeIn 1s forwards 30s;
 }
 
 /* 返回链接样式 */
@@ -140,7 +140,7 @@ p:nth-of-type(13) { animation-delay: 6.5s; }
     height: auto;
     opacity: 0; /* 初始状态为透明 */
     transform: translateY(20px); /* 初始状态下，图片向下偏移 */
-    animation: fadeIn 1s forwards 8s; /* 调用 fadeIn 动画，并设置7秒的延时 */
+    animation: fadeIn 1s forwards 32s; /* 调用 fadeIn 动画，并设置7秒的延时 */
 }
 
 /* 延时显示 signature GIF 样式 */
@@ -150,7 +150,7 @@ p:nth-of-type(13) { animation-delay: 6.5s; }
     margin-left: 20px; /* 保持图片间距 */
     opacity: 0; /* 初始状态为透明 */
     transform: translateY(20px); /* 初始状态下向下偏移 */
-    animation: fadeIn 1s forwards 8s; /* 在主图展示2秒后加载 */
+    animation: fadeIn 1s forwards 32s; /* 在主图展示2秒后加载 */
 }
 
 
