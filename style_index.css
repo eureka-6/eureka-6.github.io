@@ -5,6 +5,8 @@ body {
     font-family: Arial, sans-serif;
     overflow: hidden;
     height: 5000vh;
+    background-image: url('images/background.jpg'); /* 设置自定义背景图片 */
+
 }
 
 .photo-wall {
@@ -67,7 +69,7 @@ body {
     margin: 0 auto;
     left: 50%;
     transform: translateX(-50%);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加轻微阴影效果 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35); /* 添加轻微阴影效果 */
 }
 
 /* Title Styling */
