@@ -132,6 +132,65 @@
         generateCalendar(2025, 0);
     </script>
 
+
+    <div class="chat-container">
+        <h2>问答对话框</h2>
+        <div id="chatBox" class="chat-box"></div>
+        <input type="text" id="userInput" placeholder="请输入你的问题..." class="chat-input">
+        <button onclick="sendMessage()" class="chat-button">发送</button>
+    </div>
+
+    <script>
+        async function sendMessage() {
+            const userInput = document.getElementById('userInput').value;
+            const chatBox = document.getElementById('chatBox');
+
+            if (!userInput) {
+                return;
+            }
+
+            // 显示用户输入
+            const userMessage = document.createElement('div');
+            userMessage.textContent = `你：${userInput}`;
+            userMessage.className = 'message user-message';
+            chatBox.appendChild(userMessage);
+
+            // 清空输入框
+            document.getElementById('userInput').value = '';
+
+            // 调用 ErnieBot API 获取回答
+            try {
+                const accessToken = "YOUR_ACCESS_TOKEN"; // 替换为你的 Access Token
+                const response = await fetch(
+                    `https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/completions?access_token=24.de1c5db047606148860fe5a23b54b53b.2592000.1737745563.282335-116844271`,
+                    {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            model: 'ernie-4.0-turbo-8k',
+                            messages: [{ role: 'user', content: userInput }]
+                        }),
+                    }
+                );
+
+                const result = await response.json();
+
+                // 显示 API 返回的回答
+                const botMessage = document.createElement('div');
+                botMessage.textContent = `大木头：${result.result}`;
+                botMessage.className = 'message bot-message';
+                chatBox.appendChild(botMessage);
+            } catch (error) {
+                const errorMessage = document.createElement('div');
+                errorMessage.textContent = '出错了，请稍后再试。';
+                errorMessage.className = 'message error-message';
+                chatBox.appendChild(errorMessage);
+            }
+        }
+    </script>
+
     <div class="footer">
         <p>© 2025 eureka-ya.xin. All rights reserved.</p>
         <p>Designed with ❤️ by 大木头</p>

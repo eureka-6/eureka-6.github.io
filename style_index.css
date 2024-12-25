@@ -216,3 +216,67 @@ footer {
     color: #fff;
     border-radius: 50%;
 }
+
+/* 聊天容器 */
+.chat-container {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff5e1; /* 与复古信风格保持一致 */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px;
+}
+
+/* 聊天记录区域 */
+.chat-box {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #d1b39a;
+    background-color: #ffffff;
+}
+
+/* 输入框 */
+.chat-input {
+    width: calc(100% - 90px);
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #d1b39a;
+    border-radius: 5px;
+}
+
+/* 按钮 */
+.chat-button {
+    padding: 10px;
+    background-color: #8b4c39;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.chat-button:hover {
+    background-color: #4b3b2f;
+}
+
+/* 聊天消息 */
+.message {
+    margin: 5px 0;
+}
+
+.user-message {
+    color: #4b3b2f;
+    font-weight: bold;
+}
+
+.bot-message {
+    color: #8b4c39;
+    font-style: italic;
+}
+
+.error-message {
+    color: red;
+    font-style: italic;
+}
