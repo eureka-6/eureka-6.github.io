@@ -134,7 +134,7 @@
 
 
     <div class="chat-container">
-        <h2>问答对话框</h2>
+        <h2>有事情告诉/问大木头吗？</h2>
         <div id="chatBox" class="chat-box"></div>
         <input type="text" id="userInput" placeholder="请输入你的问题..." class="chat-input">
         <button onclick="sendMessage()" class="chat-button">发送</button>
@@ -170,7 +170,12 @@
                         },
                         body: JSON.stringify({
                             model: 'ernie-4.0-turbo-8k',
-                            messages: [{ role: 'user', content: userInput }]
+                            messages: [
+                                {
+                                    role: 'user',
+                                    content: `你是一个名叫“大木头”的男朋友。你充满爱心、幽默感，对你的女朋友“雅雅”关怀备至，常常用温暖、亲切的语气与她交流，像聊天一样自然流畅。以下是我女朋友说的话：${userInput}`
+                                }
+                            ]
                         }),
                     }
                 );

@@ -219,13 +219,13 @@ footer {
 
 /* 聊天容器 */
 .chat-container {
-    margin: 20px;
-    padding: 20px;
-    background-color: #fff5e1; /* 与复古信风格保持一致 */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 600px;
+    margin: 20px auto; /* 自动居中 */
+    padding: 15px;
+    max-width: 600px; /* 限制最大宽度 */
+    background: #fff5e1; /* 背景颜色 */
+    border-radius: 15px; /* 圆角边框 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 阴影 */
+    text-align: center; /* 居中对齐内容 */
 }
 
 /* 聊天记录区域 */
