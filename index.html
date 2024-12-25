@@ -60,6 +60,14 @@
             <a href="letter.html" class="calendar-link">Letter</a>
         </div>
         <div class="calendar-container">
+            <label for="monthSelect">选择月份：</label>
+            <select id="monthSelect" onchange="updateCalendar()">
+                <option value="0">1月份</option>
+                <option value="1">2月份</option>
+                <option value="2">3月份</option>
+                <option value="3">4月份</option>
+                <option value="4">5月份</option>
+            </select>
             <table class="calendar">
                 <thead>
                     <tr>
@@ -112,6 +120,14 @@
     
         // 生成2025年1月日历
         generateCalendar(2025, 0); // 月份从0开始（0代表1月）
+        function updateCalendar() {
+            const monthSelect = document.getElementById('monthSelect');
+            const selectedMonth = parseInt(monthSelect.value);
+            generateCalendar(2025, selectedMonth);
+        }
+
+        // 初始化显示1月的日历
+        generateCalendar(2025, 0);
     </script>
 
     <div class="footer">
