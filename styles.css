@@ -165,3 +165,9 @@ p:nth-of-type(13) { animation-delay: 26s; }
         transform: translateY(0);
     }
 }
+
+video {
+    border: 5px solid #d1b39a;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
