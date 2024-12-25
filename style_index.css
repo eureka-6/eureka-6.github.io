@@ -171,3 +171,38 @@ footer {
     font-weight: bold; /* 高亮显示动态数据 */
     color: #8b4c39; /* 突出访问次数 */
 }
+
+.calendar-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.calendar {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 600px;
+    background-color: #fff5e1; /* 信纸背景 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.calendar th, .calendar td {
+    padding: 10px;
+    border: 1px solid #d1b39a;
+}
+
+.calendar a {
+    text-decoration: none;
+    color: #8b4c39;
+    font-weight: bold;
+    display: block;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.calendar a:hover {
+    background-color: #8b4c39;
+    color: #fff;
+    border-radius: 50%;
+}

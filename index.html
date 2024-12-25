@@ -58,11 +58,61 @@
         <p>Click on a date to view your message:</p>
         <div>
             <a href="letter.html" class="calendar-link">Letter</a>
-            <a href="01-01.html" class="calendar-link">January 1st</a>
-            <a href="01-02.html" class="calendar-link">January 2nd</a>
-            <a href="01-03.html" class="calendar-link">January 3rd</a>
+        </div>
+        <div class="calendar-container">
+            <table class="calendar">
+                <thead>
+                    <tr>
+                        <th>Sun</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                    </tr>
+                </thead>
+                <tbody id="calendarBody">
+                    <!-- 日历内容由 JavaScript 动态填充 -->
+                </tbody>
+            </table>
         </div>
     </div>
+
+    <script>
+        function generateCalendar(year, month) {
+            const calendarBody = document.getElementById('calendarBody');
+            calendarBody.innerHTML = ''; // 清空内容
+    
+            const firstDay = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+    
+            let date = 1;
+            for (let i = 0; i < 6; i++) { // 最多6行
+                const row = document.createElement('tr');
+                for (let j = 0; j < 7; j++) {
+                    const cell = document.createElement('td');
+                    if (i === 0 && j < firstDay) {
+                        // 空单元格
+                        row.appendChild(cell);
+                    } else if (date > daysInMonth) {
+                        break;
+                    } else {
+                        const link = document.createElement('a');
+                        link.href = `${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}.html`;
+                        link.textContent = date;
+                        cell.appendChild(link);
+                        row.appendChild(cell);
+                        date++;
+                    }
+                }
+                calendarBody.appendChild(row);
+            }
+        }
+    
+        // 生成2025年1月日历
+        generateCalendar(2025, 0); // 月份从0开始（0代表1月）
+    </script>
 
     <div class="footer">
         <p>© 2025 eureka-ya.xin. All rights reserved.</p>
