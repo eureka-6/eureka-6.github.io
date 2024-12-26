@@ -29,4 +29,8 @@ async function generateHash(password) {
     return hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
 }
 
-generateHash('love2025').then(console.log); // 替换 'love2025' 为你的密码
+generateHash('forever').then(console.log); // 替换 'love2025' 为你的密码
+
+50dbcb08e72d1dd46d5e66e834cc275d6e7e83b6de2884ce9c7433f473181817
+
+2070f725ff1c765b73c498de52bc419377979691f6100de3ed99794aeb40d988
