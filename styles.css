@@ -127,10 +127,10 @@ p:nth-of-type(13) { animation-delay: 26s; }
     display: inline-block; /* 使得盒子可以根据内容调整大小 */
     padding: 10px; /* 盒子内部的内边距，可以根据需要调整 */
     border: 10px solid transparent; /* 透明的边框，用于容纳花边图像 */
-    -webkit-border-image: url('images/lace.png') 30 round; /* WebKit 浏览器（如 Chrome、Safari） */
-    -moz-border-image: url('images/lace.png') 30 round; /* Firefox 浏览器 */
-    -o-border-image: url('images/lace.png') 30 round; /* Opera 浏览器 */
-    border-image: url('images/lace.png') 30 round; /* 标准语法 */
+    -webkit-border-image: url('images/letter/lace.png') 30 round; /* WebKit 浏览器（如 Chrome、Safari） */
+    -moz-border-image: url('images/letter/lace.png') 30 round; /* Firefox 浏览器 */
+    -o-border-image: url('images/letter/lace.png') 30 round; /* Opera 浏览器 */
+    border-image: url('images/letter/lace.png') 30 round; /* 标准语法 */
     border-image-outset: 5px; /* 可选：设置花边图像超出边框的距离 */
 }
 
@@ -170,4 +170,48 @@ video {
     border: 5px solid #d1b39a;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.roulette-container {
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff5e1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.roulette-title {
+    font-size: 1.8rem;
+    color: #8b4c39;
+    margin-bottom: 10px;
+}
+
+.spin-button {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #8b4c39;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.spin-button:hover {
+    background-color: #a65a3f;
+}
+
+.result-text {
+    font-size: 1.2rem;
+    color: #8b4c39;
+    margin-top: 10px;
+}
+
+#rouletteCanvas {
+    display: block;
+    margin: 0 auto;
+    width: 400px;
+    height: 400px;
+    border: 2px solid #8b4c39; /* 可选：调试时的辅助边框 */
 }

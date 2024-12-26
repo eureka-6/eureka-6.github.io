@@ -57,17 +57,17 @@
 
     <div class="photo-wall">
         <div class="scrolling-photos">
-            <img src="images/001.webp" alt="Photo 1">
-            <img src="images/002.webp" alt="Photo 2">
-            <img src="images/003.webp" alt="Photo 3">
-            <img src="images/004.webp" alt="Photo 4">
-            <img src="images/005.webp" alt="Photo 5">
-            <img src="images/006.webp" alt="Photo 6">
-            <img src="images/007.webp" alt="Photo 7">
-            <img src="images/008.webp" alt="Photo 8">
+            <img src="images/index/001.webp" alt="Photo 1">
+            <img src="images/index/002.webp" alt="Photo 2">
+            <img src="images/index/003.webp" alt="Photo 3">
+            <img src="images/index/004.webp" alt="Photo 4">
+            <img src="images/index/005.webp" alt="Photo 5">
+            <img src="images/index/006.webp" alt="Photo 6">
+            <img src="images/index/007.webp" alt="Photo 7">
+            <img src="images/index/008.webp" alt="Photo 8">
         </div>
         <div class="center-image">
-            <img src="images/certificate.JPG" alt="Center Image">
+            <img src="images/index/certificate.JPG" alt="Center Image">
         </div>
     </div>
 
@@ -143,7 +143,7 @@
                         break;
                     } else {
                         const link = document.createElement('a');
-                        link.href = `${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}.html`;
+                        link.href = `pages/2025-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}.html`;
                         link.textContent = date;
                         cell.appendChild(link);
                         row.appendChild(cell);

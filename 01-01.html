@@ -4,32 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>January 1st - Your Special Message</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
-            text-align: center;
-        }
-        .message {
-            font-size: 20px;
-            margin: 20px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            border: 1px solid #ddd;
-        }
-        .back-link {
-            display: block;
-            margin-top: 20px;
-            font-size: 16px;
-            text-decoration: none;
-            color: #333;
-        }
-        .back-link:hover {
-            color: #007BFF;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Happy New Year，雅小姐!</h1>
@@ -38,5 +13,26 @@
         <p>"I'm so grateful for you, and I can't wait for all the memories we’ll create together in 2025!"</p>
     </div>
     <a href="index.html" class="back-link">Back to Calendar</a>
+    <div class="container">
+        <!-- 新增视频播放器 -->
+        <div class="letter-box">
+            <h2 class="title">特别回忆视频</h2>
+            <video controls width="100%">
+                <source src="videos/tt.webm" type="video/webm">
+                您的浏览器不支持 HTML5 视频播放功能。
+            </video>
+
+            <img src="images/test/iii.webp" alt="Photo 4" width="300" >
+
+
+            <video controls width="100%">
+                <source src="videos/test.mp4" type="video/mp4">
+                您的浏览器不支持 HTML5 视频播放功能。
+            </video>
+            <p>这里是存放我们回忆的特别视频，希望你喜欢！</p>
+        </div>
+
+        <a href="index.html" class="back-link">回到日历</a>
+    </div>
 </body>
 </html>
