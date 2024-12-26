@@ -273,6 +273,7 @@ body {
     border-radius: 8px;
     background-color: #f4e1c1;
     text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .login-container h1 {
