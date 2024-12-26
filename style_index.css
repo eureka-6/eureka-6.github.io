@@ -226,7 +226,8 @@ body {
 
 .chat-input {
     width: calc(100% - 90px);
-    padding: 10px;
+    padding: 15px; /* 输入框内边距调大 */
+    font-size: 16px; /* 输入字体调大 */
     margin-right: 10px;
     border: 1px solid #d1b39a;
     border-radius: 5px;
