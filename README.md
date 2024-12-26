@@ -5,6 +5,11 @@ ffmpeg -i test.mov -vcodec h264 -acodec aac output.mp4
 
 ffmpeg -i input.mp4 output.gif
 
+cwebp input.jpg -o output.webp
+
+magick input.dng output.webp
+
+
 X4mFviAW8QyS1CWm7CcMgCPz
 
 zUYLcXNPzTY0E9NEGS3grV8kkp5tLX0U
