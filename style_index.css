@@ -222,10 +222,14 @@ body {
     padding: 10px;
     border: 1px solid #d1b39a;
     background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .chat-input {
-    width: calc(100% - 90px);
+    width: calc(100% - 120px);
     padding: 15px; /* 输入框内边距调大 */
     font-size: 16px; /* 输入字体调大 */
     margin-right: 10px;
