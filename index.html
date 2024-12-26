@@ -12,30 +12,31 @@
         您的浏览器不支持音频播放。
     </audio>
 
-    
     <script>
         function toggleMusic() {
-            var audio = document.getElementById('backgroundMusic');
-            var button = document.getElementById('playPauseButton');
+            const audio = document.getElementById('backgroundMusic');
+            const button = document.getElementById('playPauseButton');
             if (audio.paused) {
                 audio.play();
-                button.textContent = "⏸️"; // 切换为暂停图标
+                button.textContent = "⏸️";
             } else {
                 audio.pause();
-                button.textContent = "▶️"; // 切换为播放图标
+                button.textContent = "▶️";
             }
         }
     </script>
-    
+
     <div class="intro">
-        <h2>雅雅，欢迎来到属于我们的小天地——eureka-ya.xin
-        <!-- 播放按钮 -->
-        <button onclick="toggleMusic()" id="playPauseButton" style="border: none; background: none; cursor: pointer; font-size: 24px; margin-left: 10px;">
-            ▶️
-        </button></h2>
+        <h2>
+            雅雅，欢迎来到属于我们的小天地——eureka-ya.xin
+            <button onclick="toggleMusic()" id="playPauseButton" style="border: none; background: none; cursor: pointer; font-size: 24px; margin-left: 10px;">
+                ▶️
+            </button>
+        </h2>
         <p>这个网站托管在一个大木头为我们特别注册的专属域名上。域名就像互联网世界中的永久地址，而这个域名是专属于雅雅和大木头的。它不仅仅是一个网站，更是我们共同回忆的见证，一个只属于我们两个人的小角落。</p>
         <p>在这里，雅雅的每一次点击都通往大木头为我们精心准备的内容，每一个页面都承载着我们的故事。这不仅是一份礼物，更是一种专属特权，只属于你！</p>
     </div>
+
     <div class="photo-wall">
         <div class="scrolling-photos">
             <img src="images/001.JPG" alt="Photo 1">
@@ -46,7 +47,6 @@
             <img src="images/006.jpg" alt="Photo 6">
             <img src="images/007.JPG" alt="Photo 7">
             <img src="images/008.jpg" alt="Photo 8">
-            <!-- 添加更多图片 -->
         </div>
         <div class="center-image">
             <img src="images/certificate.JPG" alt="Center Image">
@@ -92,18 +92,17 @@
     <script>
         function generateCalendar(year, month) {
             const calendarBody = document.getElementById('calendarBody');
-            calendarBody.innerHTML = ''; // 清空内容
-    
+            calendarBody.innerHTML = '';
+
             const firstDay = new Date(year, month, 1).getDay();
             const daysInMonth = new Date(year, month + 1, 0).getDate();
-    
+
             let date = 1;
-            for (let i = 0; i < 6; i++) { // 最多6行
+            for (let i = 0; i < 6; i++) {
                 const row = document.createElement('tr');
                 for (let j = 0; j < 7; j++) {
                     const cell = document.createElement('td');
                     if (i === 0 && j < firstDay) {
-                        // 空单元格
                         row.appendChild(cell);
                     } else if (date > daysInMonth) {
                         break;
@@ -119,9 +118,7 @@
                 calendarBody.appendChild(row);
             }
         }
-    
-        // 生成2025年1月日历
-        generateCalendar(2025, 0); // 月份从0开始（0代表1月）
+
         function updateCalendar() {
             const monthSelect = document.getElementById('monthSelect');
             const selectedMonth = parseInt(monthSelect.value);
@@ -131,7 +128,6 @@
         // 初始化显示1月的日历
         generateCalendar(2025, 0);
     </script>
-
 
     <div class="chat-container">
         <h2>有事情告诉/问大木头吗？</h2>
@@ -149,18 +145,15 @@
                 return;
             }
 
-            // 显示用户输入
             const userMessage = document.createElement('div');
             userMessage.textContent = `你：${userInput}`;
             userMessage.className = 'message user-message';
             chatBox.appendChild(userMessage);
 
-            // 清空输入框
             document.getElementById('userInput').value = '';
 
-            // 调用 ErnieBot API 获取回答
             try {
-                const accessToken = "YOUR_ACCESS_TOKEN"; // 替换为你的 Access Token
+                const accessToken = "YOUR_ACCESS_TOKEN";
                 const response = await fetch(
                     `https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/completions?access_token=24.de1c5db047606148860fe5a23b54b53b.2592000.1737745563.282335-116844271`,
                     {
@@ -182,7 +175,6 @@
 
                 const result = await response.json();
 
-                // 显示 API 返回的回答
                 const botMessage = document.createElement('div');
                 botMessage.textContent = `大木头：${result.result}`;
                 botMessage.className = 'message bot-message';
@@ -201,9 +193,8 @@
         <p>Designed with ❤️ by 大木头</p>
         <p>网站访问次数：<span id="visitCount"></span></p>
     </div>
-    
+
     <script>
-        // 简单的访问次数计数功能（基于 localStorage）
         let visitCount = localStorage.getItem('visitCount') || 0;
         visitCount++;
         localStorage.setItem('visitCount', visitCount);

@@ -1,15 +1,14 @@
-/* 照片墙背景 */
+/* 全局样式 */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    /* overflow: hidden; */
     overflow-x: hidden;
     height: auto;
-    background-image: url('images/background.jpg'); /* 设置自定义背景图片 */
-    /* padding-bottom: 100px; */
+    background-image: url('images/background.jpg');
 }
 
+/* 照片墙样式 */
 .photo-wall {
     position: relative;
     width: 100%;
@@ -45,23 +44,24 @@ body {
 }
 
 .center-image {
-    position: absolute; /* 让其相对于父容器绝对定位 */
+    position: absolute;
     z-index: 10;
-    top: 50%; /* 垂直居中 */
-    left: 50%; /* 水平居中 */
-    transform: translate(-50%, -50%); /* 将其中心点调整为居中 */
-    height: 75%; /* 高度固定为滚动照片流的75% */
-    width: auto; /* 宽度根据高度自动调整 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 75%;
+    width: auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    border-radius: 15px; /* 圆角效果 */
+    border-radius: 15px;
 }
 
 .center-image img {
-    height: 100%; /* 填充容器的高度 */
-    width: auto; /* 宽度自动调整，保持比例 */
-    border-radius: 15px; /* 圆角 */
+    height: 100%;
+    width: auto;
+    border-radius: 15px;
 }
 
+/* 内容样式 */
 .content {
     position: relative;
     z-index: 20;
@@ -69,18 +69,17 @@ body {
     padding: 20px;
     border-radius: 10px;
     text-align: center;
-    margin: 0 auto;
+    margin: 40px auto 0;
     width: 60%;
     left: 32%;
     transform: translateX(-50%);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35); /* 添加轻微阴影效果 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35);
 }
 
-/* Title Styling */
 .content h1 {
     font-size: 3rem;
     font-family: 'Courier New', Courier, monospace;
-    color: #4A90E2; /* Modern blue */
+    color: #4A90E2;
     background: linear-gradient(to right, #4A90E2, #50E3C2);
     background-clip: text;
     -webkit-background-clip: text;
@@ -90,13 +89,12 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Links Styling */
 .content a.calendar-link {
     display: inline-block;
     font-size: 1.2rem;
     font-weight: bold;
     color: #fff;
-    background-color: #FF7F50; /* Coral color */
+    background-color: #FF7F50;
     text-decoration: none;
     padding: 10px 20px;
     margin: 10px 5px;
@@ -106,72 +104,61 @@ body {
 }
 
 .content a.calendar-link:hover {
-    background-color: #FF6347; /* Tomato color */
+    background-color: #FF6347;
     transform: translateY(-5px);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Add some spacing between title and links */
-.content {
-    margin-top: 40px;
-}
-
 /* 网站简介样式 */
 .intro {
-    background-color: rgba(255, 255, 240, 0.9); /* 柔和的米白色背景，带透明效果 */
+    background-color: rgba(255, 255, 240, 0.9);
     padding: 20px 30px;
     border-radius: 15px;
     margin: 20px auto;
-    max-width: 90%; /* 宽度适配不同屏幕 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加轻微阴影效果 */
+    max-width: 90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: left;
     font-family: 'Georgia', serif;
 }
 
 .intro h2 {
     font-size: 2rem;
-    color: #4A90E2; /* 标题颜色为现代蓝色 */
+    color: #4A90E2;
     margin-bottom: 10px;
 }
 
 .intro p {
     font-size: 1.2rem;
     line-height: 1.8;
-    color: #555; /* 字体颜色为柔和灰色 */
+    color: #555;
     margin: 10px 0;
 }
 
-footer {
-    background-color: #f4e1c1;
-    text-align: center;
-    padding: 20px;
-    border-top: 2px solid #8b4c39;
-    margin-top: 50px; /* 添加额外的顶部间距 */
-}
-
+/* 页脚样式 */
 .footer {
-    background-color: #f4e1c1; /* 牛皮纸背景色，保持与页面风格一致 */
-    color: #4b3b2f; /* 深棕色字体，保持复古风格 */
+    background-color: #f4e1c1;
+    color: #4b3b2f;
     text-align: center;
     padding: 15px 20px;
-    border-top: 2px solid #8b4c39; /* 与整体颜色一致的边框 */
+    border-top: 2px solid #8b4c39;
     font-family: 'Georgia', serif;
-    font-size: 1rem; /* 调整字体大小 */
+    font-size: 1rem;
     position: relative;
-    margin-top: 20px; /* 与内容保持间距 */
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* 为底部添加轻微阴影 */
+    margin-top: 20px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .footer p {
-    margin: 5px 0; /* 减少段落间距 */
-    line-height: 1.6; /* 提高可读性 */
+    margin: 5px 0;
+    line-height: 1.6;
 }
 
 .footer span {
-    font-weight: bold; /* 高亮显示动态数据 */
-    color: #8b4c39; /* 突出访问次数 */
+    font-weight: bold;
+    color: #8b4c39;
 }
 
+/* 日历样式 */
 .calendar-container {
     margin-top: 20px;
     display: flex;
@@ -192,7 +179,7 @@ footer {
     border-collapse: collapse;
     width: 100%;
     max-width: 600px;
-    background-color: #fff5e1; /* 信纸背景 */
+    background-color: #fff5e1;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     text-align: center;
@@ -217,18 +204,17 @@ footer {
     border-radius: 50%;
 }
 
-/* 聊天容器 */
+/* 聊天容器样式 */
 .chat-container {
-    margin: 20px auto; /* 自动居中 */
+    margin: 20px auto;
     padding: 15px;
-    max-width: 600px; /* 限制最大宽度 */
-    background: #fff5e1; /* 背景颜色 */
-    border-radius: 15px; /* 圆角边框 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 阴影 */
-    text-align: center; /* 居中对齐内容 */
+    max-width: 600px;
+    background: #fff5e1;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
 }
 
-/* 聊天记录区域 */
 .chat-box {
     max-height: 300px;
     overflow-y: auto;
@@ -238,7 +224,6 @@ footer {
     background-color: #ffffff;
 }
 
-/* 输入框 */
 .chat-input {
     width: calc(100% - 90px);
     padding: 10px;
@@ -247,7 +232,6 @@ footer {
     border-radius: 5px;
 }
 
-/* 按钮 */
 .chat-button {
     padding: 10px;
     background-color: #8b4c39;
@@ -261,7 +245,6 @@ footer {
     background-color: #4b3b2f;
 }
 
-/* 聊天消息 */
 .message {
     margin: 5px 0;
 }
