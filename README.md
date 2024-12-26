@@ -32,3 +32,13 @@ async function generateHash(password) {
 }
 
 generateHash('xxx').then(console.log); // 替换 'xxx' 为你的密码
+
+
+你是一个名叫“大木头”的男朋友。你充满爱心、幽默感，对你的女朋友“雅雅”关怀备至，常常用温暖、亲切的语气与她交流，像聊天一样自然流畅。但你现在正在加州大学伯克利分校交流学习，与“雅雅”远隔重洋，你们彼此很思念对方。
+
+        // 为输入框添加键盘事件监听器
+        document.getElementById('userInput').addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                sendMessage(); // 调用发送函数
+            }
+        });

@@ -166,12 +166,12 @@
 
     <div class="chat-container">
         <h2>有事情告诉/问大木头吗？</h2>
-        <div id="chatBox" class="chat-box"></div>
+        <!-- 默认隐藏 chat-box -->
+        <div id="chatBox" class="chat-box" style="display: none;"></div>
         <input type="text" id="userInput" placeholder="请输入你的问题..." class="chat-input">
         <button onclick="sendMessage()" class="chat-button">发送</button>
     </div>
 
-    
     <script>
         let contextMessages = []; // 用于存储对话上下文
         // 为输入框添加键盘事件监听器
@@ -180,13 +180,17 @@
                 sendMessage(); // 调用发送函数
             }
         });
+        // 发送消息函数
         async function sendMessage() {
             const userInput = document.getElementById('userInput').value;
             const chatBox = document.getElementById('chatBox');
 
             if (!userInput) {
-                return;
+                return; // 防止发送空消息
             }
+
+            // 显示 chat-box
+            chatBox.style.display = 'block';
 
             // 显示用户输入
             const userMessage = document.createElement('div');
@@ -194,83 +198,68 @@
             userMessage.className = 'message user-message';
             chatBox.appendChild(userMessage);
 
-            // 添加一个占位符用于显示流式返回内容
-            const botMessage = document.createElement('div');
-            botMessage.textContent = `大木头：`;
-            botMessage.className = 'message bot-message';
-            chatBox.appendChild(botMessage);
-
+            // 清空输入框
             document.getElementById('userInput').value = '';
+
+            // 添加回答框
+            const botMessage = document.createElement('div');
+            botMessage.className = 'message bot-message';
+            botMessage.textContent = '大木头：正在思考中...';
+            chatBox.appendChild(botMessage);
 
             try {
                 const accessToken = "24.de1c5db047606148860fe5a23b54b53b.2592000.1737745563.282335-116844271";
                 const url = `https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/completions?access_token=${accessToken}`;
 
-                // 将上下文与当前用户输入合并
                 const payload = {
                     model: "ernie-4.0-turbo-8k",
-                    messages: [
-                        ...contextMessages, // 添加上下文
-                        { role: "user", content: userInput }
-                    ],
+                    messages: contextMessages.concat([{ role: "user", content: userInput }]),
                     stream: true,
                     system: "你是一个名叫“大木头”的男朋友。你充满爱心、幽默感，对你的女朋友“雅雅”关怀备至，常常用温暖、亲切的语气与她交流，像聊天一样自然流畅。但你现在正在加州大学伯克利分校交流学习，与“雅雅”远隔重洋，你们彼此很思念对方。"
                 };
 
                 const response = await fetch(url, {
                     method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(payload),
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
                 });
 
                 if (!response.body) {
                     throw new Error("流式响应失败");
                 }
 
-                // 使用流解析返回的数据
                 const reader = response.body.getReader();
                 const decoder = new TextDecoder("utf-8");
-
-                let partialResult = ""; // 存储当前的累积结果
+                let partialResult = "";
 
                 while (true) {
                     const { done, value } = await reader.read();
                     if (done) break;
 
-                    // 解码流数据
                     const chunk = decoder.decode(value, { stream: true });
-
-                    // 每行以 "data:" 开头，过滤出 JSON 数据
                     const lines = chunk.split("\n").filter(line => line.startsWith("data:"));
 
                     for (const line of lines) {
                         try {
-                            const json = JSON.parse(line.slice(5).trim()); // 解析 JSON 数据
-                            partialResult += json.result; // 累加结果
-                            botMessage.textContent = `大木头：${partialResult}`; // 动态更新内容
+                            const json = JSON.parse(line.slice(5).trim());
+                            partialResult += json.result;
+                            botMessage.textContent = `大木头：${partialResult}`;
                         } catch (e) {
                             console.error("解析错误：", e, line);
                         }
                     }
                 }
 
-                // 将当前对话追加到上下文
                 contextMessages.push(
-                    { role: "user", content: userInput }, // 用户输入
-                    { role: "assistant", content: partialResult } // Bot 回复
+                    { role: "user", content: userInput },
+                    { role: "assistant", content: partialResult }
                 );
 
-                // 限制上下文长度（可选）
                 if (contextMessages.length > 10) {
-                    contextMessages = contextMessages.slice(-10); // 保留最近5轮对话
+                    contextMessages = contextMessages.slice(-10);
                 }
             } catch (error) {
-                const errorMessage = document.createElement('div');
-                errorMessage.textContent = '出错了，请稍后再试。';
-                errorMessage.className = 'message error-message';
-                chatBox.appendChild(errorMessage);
+                botMessage.textContent = '出错了，请稍后再试。';
             }
         }
     </script>
