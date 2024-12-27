@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2025-01-02 - Your Special Message</title>
+    <title>2025-01-01 - Your Special Message</title>
     <link rel="stylesheet" href="../daily_style.css">
 </head>
 <body>
@@ -14,10 +14,60 @@
     </div>
     <!-- <a href="/eureka-6.github.io/index.html" class="back-link">Back to Calendar</a> -->
     <div class="container">
+
         <div class="record-section">
-            <h2>今日实况/视频记录</h2>
-            <p>这是今天大木头的日常碎片🧩，希望雅雅喜欢！</p>
-            <a href="../index.html" class="back-link">回到日历</a>
+            <!-- 顶部标题和描述 -->
+            <div class="header">
+                <h2>今日实况/视频记录</h2>
+                <p>这是今天大木头的日常碎片🧩，希望雅雅喜欢！</p>
+            </div>
+        
+            <!-- 内容部分：图片/视频与描述一一对应 -->
+            <div class="content">
+                <!-- 单元 1 -->
+                <div class="media-item">
+                    <div class="media">
+                        <img src="../images/test/iii.webp" alt="合影">
+                    </div>
+                    <div class="description">
+                        <p>咱们在北门的合影。</p>
+                    </div>
+                </div>
+                <!-- 单元 2 -->
+                <div class="media-item">
+                    <div class="media">
+                        <video controls>
+                            <source src="../videos/tt.webm" type="video/webm">
+                            您的浏览器不支持视频播放。
+                        </video>
+                    </div>
+                    <div class="description">
+                        <p>这里的凉面非常好吃，佐料丰富，非常推荐。</p>
+                    </div>
+                </div>
+                <div class="media-item">
+                    <div class="media">
+                        <video controls>
+                            <source src="../videos/test.mp4" type="video/mp4">
+                            您的浏览器不支持视频播放。
+                        </video>
+                    </div>
+                    <div class="description">
+                        <p>这里的凉面非常好吃，佐料丰富，非常推荐。</p>
+                    </div>
+                </div>
+                <div class="media-item">
+                    <div class="media">
+                        <img src="../images/letter/signature.gif" type="image/gif">
+                    </div>
+                    <div class="description">
+                        <p>这里的凉面非常好吃，佐料丰富，非常推荐。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="header">
+                <a href="../index.html" class="back-link">回到日历</a>
+            </div>
         </div>
     </div>
     <div class="roulette-container">
@@ -27,6 +77,11 @@
         <p id="resultText" class="result-text"></p>
     </div>
     <script src="../roulette.js"></script>
-
+    <script>
+        document.getElementById('spinButton').addEventListener('click', function() {
+            var audio = new Audio('../audio/roulette.mp3');
+            audio.play();
+        });
+    </script>
 </body>
 </html>

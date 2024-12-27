@@ -32,54 +32,124 @@ body {
     flex-direction: column;
 }
 
+
 /* 今日实况/视频记录外包装 */
 .record-section {
-    width: 60%;
-    max-width: 600px;
+    width: 80%;
+    max-width: 900px;
     background-color: #fff5e1; /* 淡黄色背景 */
-    padding: 20px 30px;
+    padding: 20px;
     border-radius: 15px;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
     border: 2px solid #d1b39a; /* 边框 */
     margin: 20px auto; /* 居中对齐 */
-    text-align: center;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column; /* 先垂直排列 */
+    gap: 20px; /* 元素之间的间距 */
 }
 
-/* 标题部分 */
-.record-section h2 {
+/* 顶部标题和描述 */
+.record-section .header {
+    text-align: center; /* 居中对齐 */
+    margin-bottom: 20px; /* 与下方内容的间距 */
+}
+
+.record-section .header h2 {
     font-size: 2rem;
     color: #8b4c39; /* 深棕色 */
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-/* 内容文本部分 */
-.record-section p {
+.record-section .header p {
     font-size: 1.2rem;
-    line-height: 1.6;
-    color: #4b3b2f; /* 深色文本 */
-    margin: 10px 0;
+    line-height: 1.8;
+    color: #4b3b2f;
 }
 
-/* 返回日历链接 */
-.record-section a {
+/* 美化回到日历按钮 */
+.back-link {
+    display: inline-block;
+    text-align: center;
     font-size: 1rem;
-    color: #8b4c39; /* 深棕色 */
+    font-weight: bold;
+    color: #fff;
     text-decoration: none;
-    margin-top: 15px;
-    padding: 10px 15px;
-    border: 1px solid #8b4c39;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #8b4c39, #d1b39a); /* 渐变背景 */
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 20px;
 }
 
-.record-section a:hover {
-    background-color: #8b4c39;
-    color: #fff;
+.back-link:hover {
+    transform: translateY(-3px); /* 悬浮效果 */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* 内容对齐：图片/视频与文字一一对应 */
+.record-section .content {
+    display: flex;
+    flex-direction: column; /* 垂直排列每个单元 */
+    gap: 20px; /* 单元间距 */
+}
+
+.record-section .content .media-item {
+    display: flex; /* 单元水平排列 */
+    flex-direction: row;
+    justify-content: space-between; /* 左右分布 */
+    align-items: center; /* 垂直对齐 */
+    gap: 20px; /* 列间距 */
+}
+
+.record-section .content .media-item .media,
+.record-section .content .media-item .description {
+    flex: 1;
+    max-width: 45%;
+}
+
+.record-section .content .media-item .media img,
+.record-section .content .media-item .media video {
+    width: 100%; /* 自适应宽度 */
+    border-radius: 10px; /* 圆角 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 阴影 */
+}
+
+.record-section .content .media-item .description {
+    text-align: justify;
+}
+
+/* 内容对齐：图片/视频与文字一一对应 */
+.record-section .content {
+    display: flex;
+    flex-direction: column; /* 垂直排列每个单元 */
+    gap: 20px; /* 单元间距 */
+}
+
+.record-section .content .media-item {
+    display: flex; /* 单元水平排列 */
+    flex-direction: row;
+    justify-content: space-between; /* 左右分布 */
+    align-items: center; /* 垂直对齐 */
+    gap: 20px; /* 列间距 */
+}
+
+.record-section .content .media-item .media,
+.record-section .content .media-item .description {
+    flex: 1;
+    max-width: 45%;
+}
+
+.record-section .content .media-item .media img,
+.record-section .content .media-item .media video {
+    width: 100%; /* 自适应宽度 */
+    border-radius: 15px; /* 圆角 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 阴影 */
+}
+
+.record-section .content .media-item .description {
+    text-align: justify;
 }
 
 /* 幸运轮盘部分 */
@@ -136,7 +206,7 @@ h1 {
 }
 
 /* 动画和细节装饰 */
-.message, .letter-box, .roulette-container {
+.message, .letter-box, .record-section, .roulette-container {
     animation: fadeInUp 0.8s ease-out;
 }
 

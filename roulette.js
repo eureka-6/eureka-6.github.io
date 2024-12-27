@@ -72,10 +72,9 @@ document.getElementById("spinButton").addEventListener("click", () => {
     // 3. 动画控制变量
     // -----------------------------
     let rotation = 0;                         // 当前旋转角度
-    let spinSpeed = Math.random() * 15 + 25;   // 随机初始速度
-    const deceleration = 0.98;                // 减速因子
-
-    // -----------------------------
+    let spinSpeed = Math.random() * 25 + 105;  // 随机初始速度
+    const deceleration = 0.98;                // 减速因子，稍微调小以实现更平滑的减速效果
+    const minSpeed = 0.3;                     // 最小速度阈值  // -----------------------------
     // 4. 动画函数
     // -----------------------------
     function animate() {
@@ -113,7 +112,7 @@ document.getElementById("spinButton").addEventListener("click", () => {
         
         // 下面示例：让 0 角度线对应 prizes[0] 那一块的中间位置，
         // 简单起见，加上半个扇形 arc/2 再除以 arc，得到落在哪个扇形区间。
-        let rawIndex = Math.floor((2 * Math.PI - finalAngle + arc / 2 - 2 / 3 * Math.PI ) / arc);
+        let rawIndex = Math.floor((2 * Math.PI - finalAngle + arc / 2 - 5 / 8 * Math.PI ) / arc);
         // 结果做个取模，避免溢出或负数
         rawIndex = (rawIndex + prizes.length) % prizes.length;
 
