@@ -274,7 +274,15 @@ h2 {
     background: #fff5e1;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
+    text-align: left;
+}
+
+.chat-image img {
+    width: 100px; /* 根据需要调整图片大小 */
+    height: auto;
+    border-radius: 10px; /* 圆角效果 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none; /* 默认隐藏 */
 }
 
 .chat-box {
@@ -285,9 +293,10 @@ h2 {
     border: 1px solid #d1b39a;
     background-color: #ffffff;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column; /* 改为纵向排列内容 */
+    margin-left: 120px; /* 向右平移，确保图片不被遮挡 */
+    border-radius: 10px; /* 圆角效果 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .chat-input {

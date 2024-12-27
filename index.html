@@ -255,13 +255,17 @@
         generateCalendar(2025, 0);
     </script>
 
-    <div class="chat-container">
-        <h2>大木头不在的话，有事情可以随时请教中木头～</h2>
-        <!-- 默认隐藏 chat-box -->
+<div class="chat-container">
+    <h2>大木头不在的话，有事情可以随时请教大木头的替身～</h2>
+    <div class="chat-box-container">
+        <div class="chat-image">
+            <img src="images/index/wood.jpg" alt="插图">
+        </div>
         <div id="chatBox" class="chat-box" style="display: none;"></div>
-        <input type="text" id="userInput" placeholder="请输入你的问题..." class="chat-input">
-        <button onclick="sendMessage()" class="chat-button">发送</button>
     </div>
+    <input type="text" id="userInput" placeholder="请输入你的问题..." class="chat-input">
+    <button onclick="sendMessage()" class="chat-button">发送</button>
+</div>
 
     <script>
         let contextMessages = []; // 用于存储对话上下文
@@ -275,12 +279,13 @@
         async function sendMessage() {
             const userInput = document.getElementById('userInput').value;
             const chatBox = document.getElementById('chatBox');
+            const chatImage = document.querySelector('.chat-image img');
 
             if (!userInput) {
                 return; // 防止发送空消息
             }
 
-            // 显示 chat-box
+            // 确保聊天框显示
             chatBox.style.display = 'block';
 
             // 显示用户输入
@@ -292,7 +297,7 @@
             // 清空输入框
             document.getElementById('userInput').value = '';
 
-            // 添加回答框
+            // 添加 Bot 回答框占位
             const botMessage = document.createElement('div');
             botMessage.className = 'message bot-message';
             botMessage.textContent = '大木头：正在思考中...';
@@ -323,6 +328,9 @@
                 const decoder = new TextDecoder("utf-8");
                 let partialResult = "";
 
+                // 在开始流式响应时显示图片
+                chatImage.style.display = 'block';
+
                 while (true) {
                     const { done, value } = await reader.read();
                     if (done) break;
@@ -341,11 +349,13 @@
                     }
                 }
 
+                // 更新上下文消息
                 contextMessages.push(
                     { role: "user", content: userInput },
                     { role: "assistant", content: partialResult }
                 );
 
+                // 保留最近10条对话
                 if (contextMessages.length > 10) {
                     contextMessages = contextMessages.slice(-10);
                 }
