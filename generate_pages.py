@@ -14,7 +14,7 @@ for folder in sorted(os.listdir(base_folder)):
     folder_path = os.path.join(base_folder, folder)
     if os.path.isdir(folder_path):
         date = folder.split('-')  # 假设文件夹格式为 YYYY-MM-DD
-        message = f"I'm so grateful for you, and I can't wait for all the memories we’ll create on {date[1]}/{date[2]}/{date[0]}!"
+        message = f"I miss u so much, and I can't wait to share all the pieces I've collected on {date[1]}/{date[2]}/{date[0]}!"
         videos = ""
         for file in os.listdir(folder_path):
             ext = file.split('.')[-1]

@@ -1,6 +1,6 @@
 
 
-const prizes = ["悄悄话", "歌曲推荐", "宝藏安利", "外卖奖励", "视频通话奖励", "纪念品奖励"];
+const prizes = ["悄悄话", "歌曲推荐", "宝藏安利", "外卖奖励", "视频通话奖励", "纪念品奖励", "再来一次", "明天再来"];
 let isSpinning = false;
 
 document.getElementById("spinButton").addEventListener("click", () => {
@@ -18,46 +18,54 @@ document.getElementById("spinButton").addEventListener("click", () => {
     // 1. 绘制轮盘
     // -----------------------------
     function drawRoulette() {
-    let currentAngle = 0;
-    for (let i = 0; i < prizes.length; i++) {
-        ctx.beginPath();
-        ctx.fillStyle = colors[i % colors.length];
-        ctx.moveTo(200, 200); // 圆心
-        // 扇形
-        ctx.arc(200, 200, 200, currentAngle, currentAngle + arc);
-        ctx.fill();
-        ctx.closePath();
+        let currentAngle = 0;
+        const radius = 170; // 调整轮盘半径
+        for (let i = 0; i < prizes.length; i++) {
+            ctx.beginPath();
+            ctx.fillStyle = colors[i % colors.length];
+            ctx.moveTo(200, 200); // 圆心
+            // 扇形
+            ctx.arc(200, 200, radius, currentAngle, currentAngle + arc);
+            ctx.fill();
+            ctx.closePath();
 
-        // 绘制文字
-        ctx.save();
-        // 先将画布移动到扇形外沿中点
-        ctx.translate(
-        200 + Math.cos(currentAngle + arc / 2) * 150,
-        200 + Math.sin(currentAngle + arc / 2) * 150
-        );
-        // 让文字“径向”向外
-        ctx.rotate(currentAngle + arc / 2 + Math.PI / 2);
-        ctx.fillStyle = "#fff";
-        ctx.font = "18px Arial";
-        ctx.fillText(prizes[i], -ctx.measureText(prizes[i]).width / 2, 0);
-        ctx.restore();
+            // 绘制文字
+            ctx.save();
+            // 先将画布移动到扇形外沿中点
+            ctx.translate(
+                200 + Math.cos(currentAngle + arc / 2) * (radius - 30), // 调整距离以靠近边缘
+                200 + Math.sin(currentAngle + arc / 2) * (radius - 30)  // 调整距离以靠近边缘
+            );
+            // 让文字“径向”向外
+            ctx.rotate(currentAngle + arc / 2 + Math.PI / 2);
+            ctx.fillStyle = "#fff";
+            ctx.font = "18px Arial";
+            ctx.fillText(prizes[i], -ctx.measureText(prizes[i]).width / 2, 0);
+            ctx.restore();
 
-        currentAngle += arc;
-    }
+            currentAngle += arc;  }
     }
 
     // -----------------------------
     // 2. 绘制固定指针（位于顶部）
     // -----------------------------
     function drawPointer() {
-    ctx.beginPath();
-    ctx.fillStyle = "#8b4c39";
-    // 指针三角形
-    ctx.moveTo(200, 20);
-    ctx.lineTo(190, 50);
-    ctx.lineTo(210, 50);
-    ctx.closePath();
-    ctx.fill();
+        ctx.beginPath();
+        ctx.fillStyle = "#8b4c39";
+        // 指针三角形
+        ctx.moveTo(200, 50);
+        ctx.lineTo(190, 80);
+        ctx.lineTo(210, 80);
+        ctx.closePath();
+        ctx.fill();
+
+        // 绘制从圆心到箭头的直线
+        ctx.beginPath();
+        ctx.moveTo(200, 200); // 圆心
+        ctx.lineTo(200, 70);  // 箭头顶点
+        ctx.strokeStyle = "#8b4c39";
+        ctx.lineWidth = 5;
+        ctx.stroke();
     }
 
     // -----------------------------
