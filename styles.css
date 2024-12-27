@@ -95,11 +95,11 @@ p:nth-of-type(14) { animation-delay: 112s; } /* (224.5-206.5)/2 = 9s 增量 */
 }
 
 .closing {
-    animation: fadeIn 1s forwards 113s;
+    animation: fadeIn 1s forwards 114s;
 }
 
 .signature {
-    animation: fadeIn 1s forwards 114s;
+    animation: fadeIn 1s forwards 116s;
 }
 
 /* 返回链接样式 */
@@ -139,7 +139,7 @@ p:nth-of-type(14) { animation-delay: 112s; } /* (224.5-206.5)/2 = 9s 增量 */
     height: auto;
     opacity: 0; /* 初始状态为透明 */
     transform: translateY(20px); /* 初始状态下，图片向下偏移 */
-    animation: fadeIn 1s forwards 115s; /* 调用 fadeIn 动画，并设置7秒的延时 */
+    animation: fadeIn 1s forwards 118s; /* 调用 fadeIn 动画，并设置7秒的延时 */
 }
 
 /* 延时显示 signature GIF 样式 */
@@ -149,7 +149,7 @@ p:nth-of-type(14) { animation-delay: 112s; } /* (224.5-206.5)/2 = 9s 增量 */
     margin-left: 20px; /* 保持图片间距 */
     opacity: 0; /* 初始状态为透明 */
     transform: translateY(20px); /* 初始状态下向下偏移 */
-    animation: fadeIn 1s forwards 116s; /* 在主图展示2秒后加载 */
+    animation: fadeIn 1s forwards 120s; /* 在主图展示2秒后加载 */
 }
 
 
