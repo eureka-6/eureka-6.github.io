@@ -45,7 +45,7 @@ h2 {
     width: 200%;
     height: 100%;
     display: flex;
-    animation: scrollPhotos 20s linear infinite;
+    animation: scrollPhotos 25s linear infinite;
 }
 
 .scrolling-photos img {
@@ -57,10 +57,10 @@ h2 {
 
 @keyframes scrollPhotos {
     0% {
-        transform: translateX(0);
+        transform: translateX(50%);
     }
     100% {
-        transform: translateX(-50%);
+        transform: translateX(-150%);
     }
 }
 
