@@ -25,7 +25,13 @@ zUYLcXNPzTY0E9NEGS3grV8kkp5tLX0U
 
 24.de1c5db047606148860fe5a23b54b53b.2592000.1737745563.282335-116844271
 
+#### OpenWeatherMap API
+d3ee8cb7414718b2f68516544b9b7116
+b83ac28f393cb1598ce1dd98ef9f1d52
+https://api.openweathermap.org/data/3.0/onecall?lat=34.3416&lon=108.9398&appid=d3ee8cb7414718b2f68516544b9b7116&units=metric
 
+https://home.openweathermap.org/statistics/onecall_30
+34.3416, 108.9398
 #### 基于前端的哈希算法加密
 async function generateHash(password) {
     const encoder = new TextEncoder();
