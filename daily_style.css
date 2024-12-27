@@ -110,13 +110,34 @@ body {
     line-height: 1.8; /* 增加行高，提高可读性 */
     color: #5a4633; /* 深棕色字体，匹配整体配色 */
     text-align: justify; /* 对齐文字，增强阅读体验 */
-    text-shadow: 0.5px 0.5px 3px rgba(0, 0, 0, 0.2); /* 添加轻微阴影 */
     letter-spacing: 0.5px; /* 增加字间距 */
-    padding: 10px; /* 内边距，让文字更有空间感 */
-    background: rgba(255, 245, 225, 0.8); /* 半透明背景，增强层次感 */
-    border-radius: 10px; /* 添加圆角 */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* 增加阴影 */
-    animation: fadeIn 1s ease-out; /* 添加渐入动画 */
+    padding: 20px; /* 内边距，让文字更有空间感 */
+    background: rgba(255, 245, 225, 0.9); /* 半透明背景，增强层次感 */
+    border-radius: 20px; /* 添加圆角，模拟气泡样式 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 增加阴影 */
+    position: relative; /* 为三角形设置基准 */
+    margin: 10px 20px; /* 设置外边距 */
+}
+
+/* 添加气泡的尾巴（三角形） */
+.record-section .content .media-item .description::after {
+    content: '';
+    position: absolute;
+    bottom: -15px; /* 三角形位置 */
+    left: 20px; /* 调整尾巴水平位置 */
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 15px 15px 0 0; /* 上宽下窄三角形 */
+    border-color: rgba(255, 245, 225, 0.9) transparent transparent transparent; /* 与背景一致的颜色 */
+}
+
+/* 调整为发言方向的样式 */
+.record-section .content .media-item .description.left::after {
+    left: auto;
+    right: 30px;
+    border-width: 0 15px 15px 0; /* 下宽上窄三角形 */
+    border-color: transparent rgba(255, 245, 225, 0.9) transparent transparent;
 }
 
 .record-section .content .media-item .media img,
