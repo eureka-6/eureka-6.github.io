@@ -6,9 +6,6 @@ body {
     overflow-x: hidden;
     height: auto;
     background-image: url('images/index/background.jpg');
-    background-size: cover; /* 确保图片适应屏幕 */
-    background-attachment: fixed; /* 背景固定 */
-    background-position: center; /* 居中显示 */
 }
 
 .header {
