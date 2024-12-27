@@ -105,8 +105,18 @@ body {
 
 .record-section .content .media-item .media,
 .record-section .content .media-item .description {
-    flex: 1;
-    max-width: 45%;
+    font-family: 'Cormorant Garamond', 'Georgia', serif; /* 添加优雅字体 */
+    font-size: 1.1rem; /* 调整字体大小 */
+    line-height: 1.8; /* 增加行高，提高可读性 */
+    color: #5a4633; /* 深棕色字体，匹配整体配色 */
+    text-align: justify; /* 对齐文字，增强阅读体验 */
+    text-shadow: 0.5px 0.5px 3px rgba(0, 0, 0, 0.2); /* 添加轻微阴影 */
+    letter-spacing: 0.5px; /* 增加字间距 */
+    padding: 10px; /* 内边距，让文字更有空间感 */
+    background: rgba(255, 245, 225, 0.8); /* 半透明背景，增强层次感 */
+    border-radius: 10px; /* 添加圆角 */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* 增加阴影 */
+    animation: fadeIn 1s ease-out; /* 添加渐入动画 */
 }
 
 .record-section .content .media-item .media img,
