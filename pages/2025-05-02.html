@@ -102,7 +102,7 @@
         var latlngs = journey.map(function (stop) {
             return [stop.lat, stop.lng];
         });
-        L.polyline(latlngs, { color: 'blue' }).addTo(map);
+        L.polyline(latlngs, { color: 'brown', dashArray: '5, 10' }).addTo(map);
     </script>
 </body>
 </html>

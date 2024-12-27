@@ -15,16 +15,50 @@
     </script>
 </head>
 <body>
-    <div class="logout-container">
-        <button onclick="logout()">退出登录</button>
-    </div>
-    
+    <header class="header">
+        <div class="header-content">
+            <h1 class="header-title" id="randomQuote">欢迎来到我们的主页</h1>
+            <button onclick="logout()" class="logout-button">退出登录</button>
+        </div>
+    </header>
     <script>
         function logout() {
             localStorage.removeItem('loggedIn'); // 移除登录状态
             window.location.href = 'login.html'; // 跳转到登录页面
         }
+                // 爱情名人名言列表
+        const loveQuotes = [
+            "“爱是长久忍耐，又有恩慈。” — 圣经《哥林多前书》",
+            "“真正的爱情是吸引，而不是束缚。” — 马克·吐温",
+            "“你若爱她，让你的爱像阳光一样包围她，并且给她自由。” — 泰戈尔",
+            "“爱是生命的盐，它使生活有滋有味。” — 列夫·托尔斯泰",
+            "“爱情是友谊的升华，是真心的付出和不求回报的关怀。” — 林语堂",
+            "“爱是理解的别名。” — 泰戈尔",
+            "“爱情让人成为更好的自己。” — 奥斯卡·王尔德",
+            "“爱比伟大更伟大。” — 雪莱",
+            "“当爱触碰到心灵时，它便不再是肉体的羁绊，而是灵魂的共鸣。” — 埃克哈特·托利",
+            "“你是我最深的渴望，也是我最甜的牵挂。” — 未知",
+            "“爱情是两个灵魂在同一个思想中的相遇。” — 纪伯伦",
+            "“爱是无条件的，它不求回报。” — 玛丽·安·拉德马赫",
+            "“爱是生活的火焰，没有它，一切变得黑暗。” — 罗曼·罗兰",
+            "“爱是永恒的，外表可能改变，但本质永远不变。” — 文森特·梵高",
+            "“爱是灵魂的相遇，是心灵的共鸣。” — 约翰·济慈",
+            "“爱是唯一的现实，是我们存在的最终意义。” — 亨利·米勒",
+            "“爱是我们对彼此的承诺，是我们共同的信仰。” — 未知",
+            "“爱是我们生命中的光芒，是我们前行的动力。” — 未知",
+        ];
+
+        // 随机选择名言并插入到页面
+        function displayRandomQuote() {
+            const randomIndex = Math.floor(Math.random() * loveQuotes.length);
+            const randomQuote = loveQuotes[randomIndex];
+            document.getElementById('randomQuote').textContent = randomQuote;
+        }
+
+        // 调用函数在页面加载时更新标题
+        window.onload = displayRandomQuote;
     </script>
+
     <audio id="backgroundMusic" loop>
         <source src="audio/Minecrafts_end.mp3" type="audio/mpeg">
         您的浏览器不支持音频播放。
@@ -114,36 +148,46 @@
         <p style="font-size: 18px; font-weight: bold; color: #333;">点击今天的日期，开启你和大木头的幸运旅程:</p>
 
         <div class="calendar-container">
-            <select id="monthSelect" onchange="updateCalendar()">
-                <option value="0">1月份</option>
-                <option value="1">2月份</option>
-                <option value="2">3月份</option>
-                <option value="3">4月份</option>
-                <option value="4">5月份</option>
-                <option value="5">6月份</option>
-                <option value="6">7月份</option>
-                <option value="7">8月份</option>
-                <option value="8">9月份</option>
-                <option value="9">10月份</option>
-                <option value="10">11月份</option>
-                <option value="11">12月份</option>
-            </select>
-            <table class="calendar">
-                <thead>
-                    <tr>
-                        <th>Sun</th>
-                        <th>Mon</th>
-                        <th>Tue</th>
-                        <th>Wed</th>
-                        <th>Thu</th>
-                        <th>Fri</th>
-                        <th>Sat</th>
-                    </tr>
-                </thead>
-                <tbody id="calendarBody">
-                    <!-- 日历内容由 JavaScript 动态填充 -->
-                </tbody>
-            </table>
+            <div class="month-selector">
+                <select id="monthSelect" onchange="updateCalendar()">
+                    <option value="0">1月份</option>
+                    <option value="1">2月份</option>
+                    <option value="2">3月份</option>
+                    <option value="3">4月份</option>
+                    <option value="4">5月份</option>
+                    <option value="5">6月份</option>
+                    <option value="6">7月份</option>
+                    <option value="7">8月份</option>
+                    <option value="8">9月份</option>
+                    <option value="9">10月份</option>
+                    <option value="10">11月份</option>
+                    <option value="11">12月份</option>
+                </select>
+            </div>
+            <div class="calendar-countdown">
+                <table class="calendar">
+                    <thead>
+                        <tr>
+                            <th>Sun</th>
+                            <th>Mon</th>
+                            <th>Tue</th>
+                            <th>Wed</th>
+                            <th>Thu</th>
+                            <th>Fri</th>
+                            <th>Sat</th>
+                        </tr>
+                    </thead>
+                    <tbody id="calendarBody">
+                        <!-- 日历内容由 JavaScript 动态填充 -->
+                    </tbody>
+                </table>
+                <div class="countdown-container">
+                    <p>离大木头回国还有</p>
+                    <p id="countdownDays" class="countdown-days">加载中...</p>
+                    <p>天</p>
+                </div>
+                <script src="countdown.js"></script>
+            </div>
         </div>
         <div>
             <a href="letter.html" class="calendar-link">Letter</a>
