@@ -31,7 +31,7 @@ async function fetchWeather(lat, lon, currentId, forecastId) {
 }
 
 // 西安天气
-fetchWeather(34.3416, 108.9398, 'xian-weather', 'xian-forecast');
+fetchWeather(34.2148, 108.9378, 'xian-weather', 'xian-forecast');
 
 // 伯克利天气
-fetchWeather(37.8716, -122.2727, 'berkeley-weather', 'berkeley-forecast');
+fetchWeather(37.8638, -122.2730, 'berkeley-weather', 'berkeley-forecast');

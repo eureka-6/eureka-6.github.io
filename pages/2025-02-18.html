@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2025-02-18 - 每日🧩</title>
     <link rel="stylesheet" href="../daily_style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
     <h1>今日份大木头速递😘</h1>
@@ -70,7 +72,37 @@
             </div>
         </div>
     </div>
+    <div class="daily-routine">
+        <h2>Today's Journey</h2>
+        <div id="map" style="width: 100%; height: 400px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);"></div>
+    </div>
+    <script>
+        // 初始化地图
+        var map = L.map('map').setView([34.3416, 108.9398], 13); // 西安的初始坐标
     
-
+        // 添加地图瓦片层
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+        }).addTo(map);
+    
+        // 添加标记
+        var journey = [
+            { lat: 34.3416, lng: 108.9398, description: "起点：西安市中心" },
+            { lat: 34.2416, lng: 108.7398, description: "午餐地点" },
+            { lat: 34.4416, lng: 108.8398, description: "下午观景点" },
+        ];
+    
+        journey.forEach(function (stop) {
+            L.marker([stop.lat, stop.lng])
+                .addTo(map)
+                .bindPopup(stop.description);
+        });
+    
+        // 如果你想绘制路线
+        var latlngs = journey.map(function (stop) {
+            return [stop.lat, stop.lng];
+        });
+        L.polyline(latlngs, { color: 'blue' }).addTo(map);
+    </script>
 </body>
 </html>

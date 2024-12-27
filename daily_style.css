@@ -255,3 +255,21 @@ h1 {
         transform: translateY(0);
     }
 }
+
+.daily-routine {
+    width: 80%;
+    max-width: 900px;
+    background-color: #fff5e1;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+    border: 2px solid #d1b39a;
+    margin: 20px auto;
+    text-align: center;
+}
+.daily-routine h2 {
+    font-size: 2rem;
+    color: #8b4c39;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
