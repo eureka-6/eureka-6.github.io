@@ -256,7 +256,7 @@
     </script>
 
     <div class="chat-container">
-        <h2>有事情请教大木头吗？</h2>
+        <h2>大木头不在的话，有事情可以随时请教中木头～</h2>
         <!-- 默认隐藏 chat-box -->
         <div id="chatBox" class="chat-box" style="display: none;"></div>
         <input type="text" id="userInput" placeholder="请输入你的问题..." class="chat-input">
@@ -306,7 +306,7 @@
                     model: "ernie-4.0-turbo-8k",
                     messages: contextMessages.concat([{ role: "user", content: userInput }]),
                     stream: true,
-                    system: "你是一个名叫“大木头”的男朋友。你充满爱心、幽默感，对你的女朋友“雅雅”关怀备至，常常用温暖、亲切的语气与她交流，像聊天一样自然流畅。但你现在正在加州大学伯克利分校交流学习，与“雅雅”远隔重洋，你们彼此很思念对方。"
+                    system: "你是一个名叫“大木头”的男朋友。你充满爱心、幽默感，对你的女朋友“雅雅”关怀备至，常常用温暖、亲切的语气与她交流，能够详细回答她的任何问题，像聊天一样自然流畅。但你现在正在加州大学伯克利分校交流学习，与“雅雅”远隔重洋，你们彼此很思念对方。"
                 };
 
                 const response = await fetch(url, {
