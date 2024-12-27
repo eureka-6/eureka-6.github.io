@@ -8,6 +8,27 @@ body {
     background-image: url('images/index/background.jpg');
 }
 
+.vertical-title {
+    position: absolute; /* 固定位置 */
+    left: 0; /* 调整左侧对齐 */
+    top: 0; /* 调整顶部对齐 */
+    font-size: 4rem; /* 字体大小，根据需求调整 */
+    color: #5A78C4; /* 颜色调整为合适的颜色 */
+    z-index: 10; /* 确保在其他内容之上 */
+    line-height: 1; /* 避免行距拉大 */
+    transform: translateY(10px); /* y轴上向下平移 */
+}
+
+h2 {
+    position: relative; /* 为 h2 设置相对定位 */
+    line-height: 1.5; /* 调整行间距 */
+}
+
+.intro-paragraph {
+    margin-top: 2.5rem; /* 确保内容不被遮挡 */
+    padding-left: 3rem; /* 留出左侧空白以容纳“雅雅” */
+}
+
 /* 照片墙样式 */
 .photo-wall {
     position: relative;
