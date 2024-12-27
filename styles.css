@@ -37,6 +37,20 @@ body {
     border: 2px solid #d1b39a;
 }
 
+.letter-box p {
+    position: relative;
+    font-size: 1.2rem; /* 正文字体大小 */
+    line-height: 1.8; /* 调整行高，使下划线与文字间距合适 */
+    margin-bottom: 10px; /* 每段之间的间距 */
+    padding-bottom: 5px; /* 下划线的距离 */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* 添加浅浅的下划线 */
+}
+
+.letter-box p:hover {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3); /* 鼠标悬停时加深颜色 */
+    transition: border-bottom 0.3s ease; /* 添加平滑过渡效果 */
+}
+
 /* 日期样式 */
 .date {
     text-align: right;

@@ -7,8 +7,32 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <audio id="backgroundMusic" loop>
+        <source src="audio/KissTheRain.mp3" type="audio/mpeg">
+        您的浏览器不支持音频播放。
+    </audio>
+
+    <script>
+        function toggleMusic() {
+            const audio = document.getElementById('backgroundMusic');
+            const button = document.getElementById('playPauseButton');
+            if (audio.paused) {
+                audio.play();
+                button.textContent = "⏸️";
+            } else {
+                audio.pause();
+                button.textContent = "▶️";
+            }
+        }
+    </script>
+
     <div class="container">
-        <h1 class="title">一封写给雅雅的信</h1>
+        <h1 class="title">一封写给雅雅的信
+            <button onclick="toggleMusic()" id="playPauseButton" style="border: none; background: none; cursor: pointer; font-size: 24px; margin-left: 10px;">
+                ▶️
+            </button>
+        </h1>
+
         <div class="letter-box">
             <p class="date">2025年1月1日</p>
             <p class="greeting">亲爱的雅雅：</p>
