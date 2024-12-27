@@ -84,7 +84,7 @@
 
     <div class="content">
         <h1>2025 Calendar & Messages <br> ——also a love letter</h1>
-        <p style="font-size: 18px; font-weight: bold; color: #333;">选择今天的日期，开启你和大木头的幸运旅程:</p>
+        <p style="font-size: 18px; font-weight: bold; color: #333;">点击今天的日期，开启你和大木头的幸运旅程:</p>
         <div class="time-container" style="font-size: 16px; color: #555;">
             <p>北京时间（西安）: <span id="beijingTime" style="font-weight: bold;"></span></p>
             <p>太平洋时间（伯克利）: <span id="pacificTime" style="font-weight: bold;"></span></p>
@@ -112,6 +112,13 @@
                 <option value="2">3月份</option>
                 <option value="3">4月份</option>
                 <option value="4">5月份</option>
+                <option value="5">6月份</option>
+                <option value="6">7月份</option>
+                <option value="7">8月份</option>
+                <option value="8">9月份</option>
+                <option value="9">10月份</option>
+                <option value="10">11月份</option>
+                <option value="11">12月份</option>
             </select>
             <table class="calendar">
                 <thead>
@@ -131,11 +138,63 @@
             </table>
         </div>
         <div>
-            <a href="special.html" class="calendar-link">Left for Special Day</a>
+            <a href="special.html" class="calendar-link" data-locked="true" onclick="checkLock(event)">Left for Special Day</a>
         </div>
+        <script>
+            function checkLock(event) {
+                const locked = event.target.dataset.locked;
+                if (locked) {
+                    event.preventDefault();
+                    alert('这是一个特别的日子，需要解锁后才能查看！');
+                }
+            }
+        </script>
     </div>
 
     <script>
+        const holidays = {
+            // 国内节日
+            "2025-01-01": "元旦",
+            "2025-02-10": "除夕", // 农历除夕
+            "2025-02-11": "春节", // 农历正月初一
+            "2025-02-19": "元宵节", // 农历正月十五
+            "2025-04-04": "清明节",
+            "2025-05-01": "劳动节",
+            "2025-06-20": "端午节", // 农历五月初五
+            "2025-08-09": "七夕节", // 农历七月初七
+            "2025-09-28": "中秋节", // 农历八月十五
+            "2025-10-01": "国庆节",
+            "2025-10-02": "重阳节", // 农历九月初九
+
+            // 国际节日
+            "2025-02-14": "情人节",
+            "2025-03-08": "国际妇女节",
+            "2025-03-15": "消费者权益日",
+            "2025-04-22": "世界地球日",
+            "2025-05-12": "母亲节", // 每年5月的第二个星期日
+            "2025-06-16": "父亲节", // 每年6月的第三个星期日
+            "2025-06-05": "世界环境日",
+            "2025-10-31": "万圣节",
+            "2025-11-27": "感恩节", // 每年11月的第四个星期四
+            "2025-12-25": "圣诞节",
+            "2025-11-11": "光棍节",
+
+            // 美国节日
+            "2025-01-20": "马丁路德金纪念日", // 每年1月的第三个星期一
+            "2025-02-17": "总统日", // 每年2月的第三个星期一
+            "2025-03-10": "春假开始", // 动态日期，根据学校决定
+            "2025-07-04": "美国独立日",
+            "2025-09-01": "劳动节（美国）", // 每年9月的第一个星期一
+            "2025-10-14": "哥伦布日", // 每年10月的第二个星期一
+            "2025-11-28": "黑色星期五", // 感恩节后的星期五
+            "2025-06-19": "六月节", // 纪念废除奴隶制
+            "2025-12-31": "跨年夜", // 新年前夜
+
+            // 个人节日
+            "2025-01-13": "大木头出发✈️",
+            "2025-03-27": "大木头生日🎂",
+            "2025-05-20": "我爱你❤️",
+        };
         function generateCalendar(year, month) {
             const calendarBody = document.getElementById('calendarBody');
             calendarBody.innerHTML = '';
@@ -153,9 +212,20 @@
                     } else if (date > daysInMonth) {
                         break;
                     } else {
+                        const currentDate = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
                         const link = document.createElement('a');
                         link.href = `pages/2025-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}.html`;
                         link.textContent = date;
+
+                        // 检查是否为节假日
+                        if (holidays[currentDate]) {
+                            cell.classList.add('holiday'); // 添加特殊样式
+                            const tooltip = document.createElement('span');
+                            tooltip.textContent = holidays[currentDate];
+                            tooltip.classList.add('tooltip');
+                            cell.appendChild(tooltip);
+                        }
+
                         cell.appendChild(link);
                         row.appendChild(cell);
                         date++;

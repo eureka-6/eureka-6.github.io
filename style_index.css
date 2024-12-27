@@ -13,7 +13,7 @@ body {
     left: 0; /* 调整左侧对齐 */
     top: 0; /* 调整顶部对齐 */
     font-size: 4rem; /* 字体大小，根据需求调整 */
-    color: #5A78C4; /* 颜色调整为合适的颜色 */
+    color: #c45a83; /* 颜色调整为合适的颜色 */
     z-index: 10; /* 确保在其他内容之上 */
     line-height: 1; /* 避免行距拉大 */
     transform: translateY(10px); /* y轴上向下平移 */
@@ -225,6 +225,47 @@ h2 {
     border-radius: 50%;
 }
 
+/* 节假日样式 */
+.holiday {
+    position: relative;
+    border-radius: 50%; /* 保持圆形效果 */
+    text-align: center;
+}
+
+/* 使用伪元素添加🔔符号 */
+.holiday::before {
+    content: "🔔"; /* 添加提示符号 */
+    font-size: 1.5rem; /* 根据需求调整图标大小 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #c45a83; /* 可选：为🔔设置颜色 */
+}
+
+/* 提示信息样式 */
+.holiday .tooltip {
+    visibility: hidden;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* 上移 */
+    left: 50%;
+    margin-left: -50px;
+    width: 100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* 鼠标悬停时显示提示 */
+.holiday:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
 /* 聊天容器样式 */
 .chat-container {
     margin: 20px auto;
