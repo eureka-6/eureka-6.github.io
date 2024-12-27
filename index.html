@@ -264,17 +264,12 @@
         generateCalendar(2025, 0);
     </script>
 
-<div class="chat-container">
-    <h2>大木头不在的话，有事情可以随时请教大木头的替身～</h2>
-    <div class="chat-box-container">
-        <div class="chat-image">
-            <img src="images/index/wood.jpg" alt="插图">
-        </div>
-        <div id="chatBox" class="chat-box" style="display: none;"></div>
+    <div class="chat-container">
+        <h2>大木头不在的话，大木头的替身会像大木头一样回答雅雅～</h2>
+        <div id="chatBox"></div>
+        <input type="text" id="userInput" placeholder="请输入你的问题..." class="chat-input">
+        <button onclick="sendMessage()" class="chat-button">发送</button>
     </div>
-    <input type="text" id="userInput" placeholder="请输入你的问题..." class="chat-input">
-    <button onclick="sendMessage()" class="chat-button">发送</button>
-</div>
 
     <script>
         let contextMessages = []; // 用于存储对话上下文
@@ -288,39 +283,41 @@
         async function sendMessage() {
             const userInput = document.getElementById('userInput').value;
             const chatBox = document.getElementById('chatBox');
-            const chatImage = document.querySelector('.chat-image img');
 
             if (!userInput) {
                 return; // 防止发送空消息
             }
 
-            // 确保聊天框显示
-            chatBox.style.display = 'block';
-
-            // 显示用户输入
+            // 显示用户消息
             const userMessage = document.createElement('div');
-            userMessage.textContent = `你：${userInput}`;
-            userMessage.className = 'message user-message';
+            userMessage.className = 'chat-box user-box';
+            userMessage.innerHTML = `
+                <img src="images/index/yaya.jpg" alt="雅雅头像" class="chat-avatar">
+                <div class="chat-message">雅雅：${userInput}</div>
+            `;
             chatBox.appendChild(userMessage);
 
             // 清空输入框
             document.getElementById('userInput').value = '';
 
-            // 添加 Bot 回答框占位
+            // 添加 Bot 回答占位框
             const botMessage = document.createElement('div');
-            botMessage.className = 'message bot-message';
-            botMessage.textContent = '大木头：正在思考中...';
+            botMessage.className = 'chat-box bot-box';
+            botMessage.innerHTML = `
+                <img src="images/index/wood.jpg" alt="大木头头像" class="chat-avatar">
+                <div class="chat-message">大木头：正在思考中...</div>
+            `;
             chatBox.appendChild(botMessage);
 
             try {
-                const accessToken = "24.de1c5db047606148860fe5a23b54b53b.2592000.1737745563.282335-116844271";
+                const accessToken = "24.de1c5db047606148860fe5a23b54b53b.2592000.1737745563.282335-116844271"; // 替换为实际的 Access Token
                 const url = `https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/completions?access_token=${accessToken}`;
 
                 const payload = {
                     model: "ernie-4.0-turbo-8k",
                     messages: contextMessages.concat([{ role: "user", content: userInput }]),
                     stream: true,
-                    system: "你是一个名叫“大木头”的男朋友。你充满爱心、幽默感，对你的女朋友“雅雅”关怀备至，常常用温暖、亲切的语气与她交流，能够详细回答她的任何问题，像聊天一样自然流畅。但你现在正在加州大学伯克利分校交流学习，与“雅雅”远隔重洋，你们彼此很思念对方。"
+                    system: "你是一个名叫“大木头”的男朋友。你充满爱心、幽默感，对你的女朋友“雅雅”关怀备至，常常用温暖、亲切的语气与她交流，你能够尽可能详细地回答雅雅的任何问题，像聊天一样自然流畅。但你现在正在加州大学伯克利分校交流学习，与“雅雅”远隔重洋，你们彼此很思念对方。"
                 };
 
                 const response = await fetch(url, {
@@ -337,9 +334,6 @@
                 const decoder = new TextDecoder("utf-8");
                 let partialResult = "";
 
-                // 在开始流式响应时显示图片
-                chatImage.style.display = 'block';
-
                 while (true) {
                     const { done, value } = await reader.read();
                     if (done) break;
@@ -351,7 +345,7 @@
                         try {
                             const json = JSON.parse(line.slice(5).trim());
                             partialResult += json.result;
-                            botMessage.textContent = `大木头：${partialResult}`;
+                            botMessage.querySelector('.chat-message').textContent = `大木头：${partialResult}`;
                         } catch (e) {
                             console.error("解析错误：", e, line);
                         }
@@ -369,7 +363,7 @@
                     contextMessages = contextMessages.slice(-10);
                 }
             } catch (error) {
-                botMessage.textContent = '出错了，请稍后再试。';
+                botMessage.querySelector('.chat-message').textContent = '出错了，请稍后再试。';
             }
         }
     </script>
