@@ -44,3 +44,18 @@ async function generateHash(password) {
 generateHash('xxx').then(console.log); // 替换 'xxx' 为你的密码
 
 
+
+
+    <div class="roulette-container">
+        <h2 class="roulette-title">幸运轮盘</h2>
+        <canvas id="rouletteCanvas" width="400" height="400"></canvas>
+        <button id="spinButton" class="spin-button">开始抽奖</button>
+        <p id="resultText" class="result-text"></p>
+    </div>
+    <script src="../roulette.js"></script>
+    <script>
+        document.getElementById('spinButton').addEventListener('click', function() {
+            var audio = new Audio('../audio/roulette.mp3');
+            audio.play();
+        });
+    </script>
