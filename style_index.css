@@ -42,8 +42,8 @@ body {
     display: inline-flex; /* 使用 flex 让图标居中 */
     justify-content: center;
     align-items: center;
-    width: 15px; /* 圆圈的宽度 */
-    height: 15px; /* 圆圈的高度 */
+    width: 17px; /* 圆圈的宽度 */
+    height: 17px; /* 圆圈的高度 */
     font-size: 1rem; /* 图标的大小 */
     color: #8b4c39; /* 图标颜色 */
     background-color: #fff5e1; /* 圆圈的背景颜色 */
