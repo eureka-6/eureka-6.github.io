@@ -38,6 +38,28 @@ body {
     text-align: center;
 }
 
+.info-icon {
+    display: inline-flex; /* 使用 flex 让图标居中 */
+    justify-content: center;
+    align-items: center;
+    width: 15px; /* 圆圈的宽度 */
+    height: 15px; /* 圆圈的高度 */
+    font-size: 1rem; /* 图标的大小 */
+    color: #8b4c39; /* 图标颜色 */
+    background-color: #fff5e1; /* 圆圈的背景颜色 */
+    border: 2px solid #8b4c39; /* 圆圈的边框颜色 */
+    border-radius: 50%; /* 将外框变成圆形 */
+    cursor: pointer; /* 鼠标悬停变成手型 */
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    margin-right: 15px; /* 与退出登录按钮保持间距 */
+    margin-left: auto; /* 水平方向右对齐 */
+}
+
+.info-icon:hover {
+    transform: scale(1.1); /* 鼠标悬停时放大 */
+    background-color: #f4e1c1; /* 鼠标悬停时改变背景颜色 */
+}
+
 .logout-button {
     padding: 8px 16px;
     border: none;
