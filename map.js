@@ -8,12 +8,12 @@
     
         // 添加标记
         var journey = [
-            { lat: 34.3416, lng: 108.9398, description: "起点：西安市中心" },
+            { lat: 34.2148, lng: 108.9378, description: "起点：十号楼" },
             { lat: 34.2416, lng: 108.7398, description: "午餐地点" },
             { lat: 34.1416, lng: 108.6398, description: "上午观景点" },
             { lat: 34.4416, lng: 108.8398, description: "下午观景点" },
             { lat: 34.3416, lng: 108.9398, description: "晚餐地点" },
-            { lat: 34.3416, lng: 108.9398, description: "终点：西安市中心" },
+            { lat: 37.8638, lng: -122.2730, description: "终点：大木头公寓" },
         ];
     
         journey.forEach(function (stop) {
