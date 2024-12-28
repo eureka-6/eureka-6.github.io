@@ -682,7 +682,7 @@ h2 {
     animation-delay: 0.6s;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     body {
         font-size: 14px;
     }
@@ -720,4 +720,4 @@ body {
 body.dark-mode {
     --bg-color: #2c2c2c;
     --text-color: #eaeaea;
-}
+} */
