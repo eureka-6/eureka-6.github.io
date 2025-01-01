@@ -1,29 +1,30 @@
+// 加载JSON数据
+fetch('journey.json')
+    .then(response => response.json())
+    .then(data => {
+        // 获取当前页面日期，例如从URL或HTML中的变量
+        var currentDate = "2025-01-01"; // 需要根据实际动态获取
+        var journey = data[currentDate] || [];
+        
         // 初始化地图
-        var map = L.map('map').setView([34.3416, 108.9398], 13); // 西安的初始坐标
-    
-        // 添加地图瓦片层
+        var map = L.map('map').setView([34.3416, 108.9398], 13);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 18,
         }).addTo(map);
-    
+
         // 添加标记
-        var journey = [
-            { lat: 34.2148, lng: 108.9378, description: "起点：十号楼" },
-            { lat: 34.2416, lng: 108.7398, description: "午餐地点" },
-            { lat: 34.1416, lng: 108.6398, description: "上午观景点" },
-            { lat: 34.4416, lng: 108.8398, description: "下午观景点" },
-            { lat: 34.3416, lng: 108.9398, description: "晚餐地点" },
-            { lat: 37.8638, lng: -122.2730, description: "终点：大木头公寓" },
-        ];
-    
         journey.forEach(function (stop) {
             L.marker([stop.lat, stop.lng])
                 .addTo(map)
                 .bindPopup(stop.description);
         });
-    
-        // 如果你想绘制路线
+
+        // 绘制路线
         var latlngs = journey.map(function (stop) {
             return [stop.lat, stop.lng];
         });
-        L.polyline(latlngs, { color: 'brown', dashArray: '5, 10' }).addTo(map);
+        if (latlngs.length > 1) {
+            L.polyline(latlngs, { color: 'brown', dashArray: '5, 10' }).addTo(map);
+        }
+    })
+    .catch(error => console.error('加载地图数据失败:', error));
