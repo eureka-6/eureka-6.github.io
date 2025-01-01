@@ -1,5 +1,5 @@
 // 加载JSON数据
-fetch('journey.json')
+fetch('../journey.json')
     .then(response => response.json())
     .then(data => {
         // 获取当前页面日期，例如从URL或HTML中的变量
