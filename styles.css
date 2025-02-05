@@ -87,9 +87,9 @@ p {
 p:nth-of-type(2) { animation-delay: 0.5s; }
 p:nth-of-type(3) { animation-delay: 1.5s; } /* 保持1s差值 */
 p:nth-of-type(4) { animation-delay: 6.5s; } /* (9.5-1.5)/2 = 4s 增量 */
-p:nth-of-type(5) { animation-delay: 6.5s; } /* (9.5-1.5)/2 = 4s 增量 */
+p:nth-of-type(5) { animation-delay: 11.5s; } /* (9.5-1.5)/2 = 4s 增量 */
 
-p:nth-of-type(6) { animation-delay: 6.5s; } /* (9.5-1.5)/2 = 4s 增量 */
+p:nth-of-type(6) { animation-delay: 15.5s; } /* (9.5-1.5)/2 = 4s 增量 */
 
 /* p:nth-of-type(5) { animation-delay: 14.5s; } (32.5-9.5)/2 = 11s 增量 */
 /* p:nth-of-type(6) { animation-delay: 23s; } (47.5-32.5)/2 = 7.5s 增量 */
@@ -113,11 +113,15 @@ p:nth-of-type(14) { animation-delay: 112s; } /* (224.5-206.5)/2 = 9s 增量 */
 }
 
 .closing {
-    animation: fadeIn 1s forwards 114s;
+    animation: fadeIn 1s forwards 20s;
+    /* animation: fadeIn 1s forwards 114s; */
+
 }
 
 .signature {
-    animation: fadeIn 1s forwards 116s;
+    animation: fadeIn 1s forwards 26s;
+    /* animation: fadeIn 1s forwards 116s; */
+
 }
 
 /* 返回链接样式 */
