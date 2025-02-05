@@ -12,7 +12,7 @@ ffmpeg -i input.mov -c:v libvpx-vp9 -crf 30 -b:v 0 -c:a libopus output.webm
 
 cwebp input.jpg -o output.webp
 
-for i in *.JPG; do
+for i in *.jpg; do
     cwebp "$i" -o "${i%.*}.webp"
 done
 
@@ -24,6 +24,7 @@ for i in *.MOV; do
     ffmpeg -i "$i" -c:v libvpx-vp9 -c:a libopus "${i%.*}.webm"
 done
 
+for f in *.heic; do sips -s format jpeg "$f" --out "${f%.*}.jpg"; done
 
 magick input.dng output.webp
 
