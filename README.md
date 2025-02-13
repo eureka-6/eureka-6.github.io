@@ -69,3 +69,23 @@ generateHash('xxx').then(console.log); // 替换 'xxx' 为你的密码
             audio.play();
         });
     </script>
+
+
+
+p:nth-of-type(2) { animation-delay: 0.5s; }
+p:nth-of-type(3) { animation-delay: 1.5s; } /* 保持1s差值 */
+p:nth-of-type(4) { animation-delay: 6.5s; } /* (9.5-1.5)/2 = 4s 增量 */
+p:nth-of-type(5) { animation-delay: 11.5s; } /* (9.5-1.5)/2 = 4s 增量 */
+
+p:nth-of-type(6) { animation-delay: 15.5s; } /* (9.5-1.5)/2 = 4s 增量 */
+
+/* p:nth-of-type(5) { animation-delay: 14.5s; } (32.5-9.5)/2 = 11s 增量 */
+/* p:nth-of-type(6) { animation-delay: 23s; } (47.5-32.5)/2 = 7.5s 增量 */
+p:nth-of-type(7) { animation-delay: 35s; } /* (87.5-47.5)/2 = 20s 增量 */
+p:nth-of-type(8) { animation-delay: 39.5s; } /* (96.5-87.5)/2 = 4.5s 增量 */
+p:nth-of-type(9) { animation-delay: 51s; } /* (117.5-96.5)/2 = 10s 增量 */
+p:nth-of-type(10) { animation-delay: 64.5s; } /* (142.5-117.5)/2 = 12.5s 增量 */
+p:nth-of-type(11) { animation-delay: 82s; } /* (169.5-142.5)/2 = 13.5s 增量 */
+p:nth-of-type(12) { animation-delay: 95s; } /* (186.5-169.5)/2 = 8s 增量 */
+p:nth-of-type(13) { animation-delay: 110s; } /* (206.5-186.5)/2 = 10s 增量 */
+p:nth-of-type(14) { animation-delay: 112s; } /* (224.5-206.5)/2 = 9s 增量 */
